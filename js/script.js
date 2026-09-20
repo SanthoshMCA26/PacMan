@@ -50,6 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (index !== -1) {
         books[index] = { id, name, author, Category, year, quantity };
+        alert("Book Not saved Because the ID already exists");
+        this.reset();
+        return;
       } else {
         books.push({ id, name, author, Category, year, quantity });
       }
@@ -180,4 +183,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loadMembers();
   }
+  // js/script.js
+
+// Load books from localStorage
+let books = JSON.parse(localStorage.getItem("books")) || [];
+
+// Select the correct cards
+const totalBooksElement = document.querySelector(".card.bg-success .fs-4"); // green card
+const addBooksElement = document.querySelector(".card.bg-warning .fs-4");   // yellow card
+const localStorageElement = document.querySelector(".card.bg-primary .fs-4"); // blue card
+
+// Initial update
+updateDashboard();
+
+// Function to update dashboard counts
+function updateDashboard() {
+  const books = JSON.parse(localStorage.getItem("books")) || [];
+  totalBooksElement.textContent = books.length;      // total books
+  addBooksElement.textContent = books.length;        // add books count
+  localStorageElement.textContent = localStorage.length; // total keys in localStorage
+}
+
+// Function to add a new book
+function addBook(name, author) {
+  let books = JSON.parse(localStorage.getItem("books")) || [];
+  const newBook = { name, author };
+  books.push(newBook);
+  localStorage.setItem("books", JSON.stringify(books));
+
+  // Refresh dashboard instantly
+  updateDashboard();
+}
 });
