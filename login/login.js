@@ -24,7 +24,7 @@
     message.style.color = "green";
     message.textContent = "Login successful! Redirecting...";
     setTimeout(() => {
-      window.location.href = "Dashboard.html";
+      window.location.href = "../DashBoard page/Dashboard.html";
     }, 1500);
   } else {
     message.style.color = "red";

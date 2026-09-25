@@ -11,6 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const email = document.getElementById("regEmail").value.trim();
     const password = document.getElementById("regPassword").value.trim();
+    const contact = document.getElementById("mobile").value.trim();
+
+    if(!/^\d{1,10}$/.test(contact)){
+      alert("Enter 10 number only");
+      return;
+    }
 
     const userRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if(!userRegex.test(email)){
@@ -22,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         alert(" Password must be 8+ chars, include uppercase, number, and special character.");
         return;
       }
+
      
     if (email === "" || password === "") {
       alert("Please fill in all required fields!");
@@ -33,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("userPassword", password);
 
     alert("Account created successfully!");
-    window.location.href = "login.html";
+    window.location.href = "../login/Login.html";
   });
+
 });         

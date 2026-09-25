@@ -30,14 +30,21 @@ h1{
   
 }
 
-#userName, #last, #regEmail, #regPassword, #mobile,#gender   {
+#userName, #last, #regEmail, #regPassword, #mobile {
   width: 100%;
   padding: 10px;
   margin: 5px 5px 5px -22px;
   border: 1px solid #ccc;
   
-
 }
+#gender{
+  width: 100%;
+  padding: 10px;
+  margin: 5px 2px 5px -22px;
+  border: 1px solid #ccc;
+  
+
+} 
 label {
   display: block;
   text-align: left;
